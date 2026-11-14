@@ -6,8 +6,9 @@ from fastapi.testclient import TestClient
 from app._types import SuccessSearchResponse
 from app.api import app
 
-# from about 330 levels (Python recursion limit of 1000) the transformation of
-# the query raises a RecursionError
+# from 150 to 330 levels, depending on the shape of the query (Python recursion
+# limit of 1000), the transformation of the query raises a RecursionError
+# (330 for bare parentheses and `NOT`, which are the shapes tested here)
 TOO_DEEP = 400
 
 

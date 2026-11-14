@@ -145,7 +145,8 @@ def search(
         )
     except RecursionError:
         # the parser and the transformers of the query are recursive:
-        # a query nested too deeply (from about 330 levels) is a client error
+        # a query nested too deeply (from 150 to 330 levels, depending on the
+        # shape of the query) is a client error
         return ErrorSearchResponse(
             debug=SearchResponseDebug(),
             errors=[
